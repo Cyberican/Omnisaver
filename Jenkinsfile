@@ -32,7 +32,8 @@ pipeline {
                     echo "Starting necessary processes..."
                     # Add commands to start your processes here
                 '''
-                sh 'python initiate_processes.py &'
+                sh 'python3 -m venv venv'
+                sh 'python initializer.py'
                 echo 'Processes started successfully.'
             }
         }
