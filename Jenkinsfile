@@ -34,15 +34,11 @@ pipeline {
                 sh '############################ Starting Processes ############################'
                 withEnv(["PATH=$WORKSPACE/venv/bin:$PATH"]) {
                     sh '''
+                    pip3 install --upgrade pip
                     pip3 install -r requirements.txt
                     python3 initializer.py
                     '''
                 }
-                // sh '''
-                //     . venv/bin/activate
-                //     pip3 install -r requirements.txt
-                //     python3 initializer.py
-                // '''
                 echo 'Processes started successfully.'
             }
         }
