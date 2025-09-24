@@ -12,6 +12,8 @@ pipeline {
             steps {
                 echo 'Starting initial checks...'
                 echo "Running on agent: ${params.AGENT_LABEL}..."
+                echo "Source Directory: ${params.SOURCE_DIR}"
+                echo "Destination Directory: ${params.DESTINATION_DIR}"
             }
         }
         stage('Check System Info') {
