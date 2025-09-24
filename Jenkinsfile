@@ -12,25 +12,25 @@ pipeline {
                 echo "Running on agent: ${AGENT_LABEL}..."
             }
         }
-        stage('Check Git') {
+        stage('Check System Info') {
             steps {
                 sh 'git --version'
                 sh 'which git'
-            }
-        }
-
-        stage('Check Python') {
-            steps {
                 sh 'python3 --version'
                 sh 'which python3'
-            }
-        }
-
-        stage('Check Filesystem') {
-            steps {
                 sh 'ls -lsa'
+                sh 'df -h'
             }
         }
-
+        stage('Starting Processes') {
+            steps {
+                sh '''
+                    echo "Starting necessary processes..."
+                    # Add commands to start your processes here
+                '''
+                sh 'python initiate_process.py &'
+                echo 'Processes started successfully.'
+            }
+        }
     }
 }

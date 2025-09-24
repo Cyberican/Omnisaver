@@ -9,7 +9,7 @@ script_path = os.path.join(operations_dir, script_name)
 
 if os.path.isfile(script_path):
     # Start the process
-    #process = subprocess.Popen(['python', script_path])
+    # process = subprocess.Popen(['python', script_path])
     # print(f"Started process with PID: {process.pid}")
     process = subprocess.run(['python', script_path], capture_output=True, text=True)
     print(f"Process Output: {process.stdout}")
