@@ -31,13 +31,13 @@ pipeline {
             steps {
                 echo 'Starting initial checks...'
                 sh '''
-                  git --version || true
-                  which git || true
-                  python3 --version || true
-                  which python3 || true
-                  ls -lsa
-                  df -h
-                  pip3 --version || true
+                git --version || true
+                which git || true
+                python3 --version || true
+                which python3 || true
+                ls -lsa
+                df -h
+                pip3 --version || true
                 '''
             }
         }
@@ -64,14 +64,7 @@ pipeline {
                 // Prefer PATH prepend so we can just call `python`/`pip`
                 withEnv(["PATH=${env.WORKSPACE}/venv/bin:${env.PATH}"]) {
                     sh '''
-                      if [ ! -d "venv" ]; then
-                          python3 -m venv venv
-                      fi
-                      python -m pip install --upgrade pip
-                      if [ -f requirements.txt ]; then
-                          python -m pip install -r requirements.txt
-                      fi
-                      python initializer.py
+                    python initializer.py
                     '''
                 }
                 echo 'Processes started successfully.'
