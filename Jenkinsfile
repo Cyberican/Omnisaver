@@ -42,9 +42,9 @@ pipeline {
                 sh '############################ Starting Processes ############################'
                 sh '''
                     . venv/bin/activate
+                    pip3 install -r requirements.txt
                     python3 initializer.py
                 '''
-                sh 'python3 initializer.py'
                 echo 'Processes started successfully.'
             }
         }
