@@ -8,6 +8,12 @@ pipeline {
     }
 
     stages {
+        stage('Starting Job') {
+            steps {
+               echo "Starting job: ${job.name}"
+            }
+        }
+
         // Run the checks stage
         if (job.name.endsWith('_check')) {
             stage('Clean Workspace') {
