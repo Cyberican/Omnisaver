@@ -24,13 +24,14 @@ pipeline {
                 sh 'which python3'
                 sh 'ls -lsa'
                 sh 'df -h'
+                sh 'pip3 --version'
             }
         }
 
         stage('Install Dependencies') {
             steps {
                 sh '############################ Installing Dependencies ############################'
-                sh 'pip install -r requirements.txt'
+                sh 'pip3 install -r requirements.txt'
             }
         }
 
