@@ -14,6 +14,7 @@ pipeline {
                 echo "Running on agent: ${params.AGENT_LABEL}..."
                 echo "Source Directory: ${params.SOURCE_DIR}"
                 echo "Destination Directory: ${params.DESTINATION_DIR}"
+                echo "My Current Workspace: $WORKSPACE"
             }
         }
         stage('Check System Info') {
@@ -39,6 +40,10 @@ pipeline {
         stage('Starting Processes') {
             steps {
                 sh '############################ Starting Processes ############################'
+                sh '''
+                    . venv/bin/activate
+                    python3 initializer.py
+                '''
                 sh 'python3 initializer.py'
                 echo 'Processes started successfully.'
             }
