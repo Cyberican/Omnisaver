@@ -28,13 +28,13 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
-            steps {
-                sh '############################ Installing Dependencies ############################'
-                sh 'pip3 install upgrade pip'
-                sh 'pip3 install -r requirements.txt'
-            }
-        }
+        // stage('Install Dependencies') {
+        //     steps {
+        //         sh '############################ Installing Dependencies ############################'
+        //         sh 'pip3 install upgrade pip'
+        //         sh 'pip3 install -r requirements.txt'
+        //     }
+        // }
 
         stage('Starting Processes') {
             steps {
