@@ -38,7 +38,7 @@ pipeline {
         stage('Starting Processes') {
             steps {
                 sh '############################ Starting Processes ############################'
-                sh 'python initializer.py'
+                sh 'python3 initializer.py'
                 echo 'Processes started successfully.'
             }
         }
