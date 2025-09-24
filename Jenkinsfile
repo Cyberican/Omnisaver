@@ -1,15 +1,17 @@
 pipeline {
-    agent { label "${AGENT_LABEL}" }
+    agent { label 'raspberrypi-gw' }
 
     parameters {
         string(name: 'AGENT_LABEL', defaultValue: 'raspberrypi-gw', description: 'Agent label to run this pipeline')
+        string(name: 'SOURCE_DIR', defaultValue: '/tmp/source', description: 'Source directory')
+        string(name: 'DESTINATION_DIR', defaultValue: '/tmp/target', description: 'Destination directory')
     }
 
     stages {
         stage('Initial Checks') {
             steps {
                 echo 'Starting initial checks...'
-                echo "Running on agent: ${AGENT_LABEL}..."
+                echo "Running on agent: ${params.AGENT_LABEL}..."
             }
         }
         stage('Check System Info') {
