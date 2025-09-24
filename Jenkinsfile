@@ -26,15 +26,19 @@ pipeline {
                 sh 'df -h'
             }
         }
+
+        stage('Install Dependencies') {
+            steps {
+                sh '############################ Installing Dependencies ############################'
+                sh 'python3 -m venv venv'
+                sh '. ./venv/bin/activate'
+                sh 'pip install -r requirements.txt'
+            }
+        }
+
         stage('Starting Processes') {
             steps {
-                sh '''
-                    echo "Starting necessary processes..."
-                    # Add commands to start your processes here
-                '''
-                sh 'python3 -m venv venv'
-                sh 'source venv/bin/activate'
-                sh 'pip install -r requirements.txt'
+                sh '############################ Starting Processes ############################'
                 sh 'python initializer.py'
                 echo 'Processes started successfully.'
             }
