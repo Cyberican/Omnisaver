@@ -33,6 +33,8 @@ pipeline {
                     # Add commands to start your processes here
                 '''
                 sh 'python3 -m venv venv'
+                sh 'source venv/bin/activate'
+                sh 'pip install -r requirements.txt'
                 sh 'python initializer.py'
                 echo 'Processes started successfully.'
             }
