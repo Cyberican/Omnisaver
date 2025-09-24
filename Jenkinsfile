@@ -32,7 +32,7 @@ pipeline {
                     echo "Starting necessary processes..."
                     # Add commands to start your processes here
                 '''
-                sh 'python initiate_process.py &'
+                sh 'python initiate_processes.py &'
                 echo 'Processes started successfully.'
             }
         }
