@@ -29,22 +29,20 @@ pipeline {
             }
         }
 
-        // stage('Install Dependencies') {
-        //     steps {
-        //         sh '############################ Installing Dependencies ############################'
-        //         sh 'pip3 install upgrade pip'
-        //         sh 'pip3 install -r requirements.txt'
-        //     }
-        // }
-
         stage('Starting Processes') {
             steps {
                 sh '############################ Starting Processes ############################'
-                sh '''
-                    . venv/bin/activate
+                withEnv(["PATH=$WORKSPACE/venv/bin:$PATH"]) {
+                    sh '''
                     pip3 install -r requirements.txt
                     python3 initializer.py
-                '''
+                    '''
+                }
+                // sh '''
+                //     . venv/bin/activate
+                //     pip3 install -r requirements.txt
+                //     python3 initializer.py
+                // '''
                 echo 'Processes started successfully.'
             }
         }
