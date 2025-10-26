@@ -49,11 +49,26 @@ cd Omnisaver
 
 ### 🐍 Setup Environment
 
+
+
+#### Legacy method of installing and activating Virtual Environment
 ```bash
+# Create and activate a uv-managed virtual environment
 python3 -m venv venv
 . venv/bin/activate
+
 pip install --upgrade pip
 pip install -r requirements.txt
+```
+
+#### Using [UV](https://docs.astral.sh/uv) to install and activate Virtual Environment
+```bash
+# Create and activate a uv-managed virtual environment
+uv venv venv
+source venv/bin/activate
+
+# Install dependencies (automatically upgrades pip-equivalent internals)
+uv pip install -r requirements.txt
 ```
 
 ### ▶️ Run Initializer via CLI
@@ -106,7 +121,7 @@ We welcome contributions from DevOps professionals, automation junkies, and cybe
 
 ---
 
-## 📜 License
+## 📜 [License](https://github.com/Cyberican/Omnisaver/blob/main/LICENSE)
 
 This project is licensed under the **Unlicense**
 

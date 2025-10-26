@@ -7,7 +7,7 @@ from utils import ProcessQueueManager
 class Initializer:
     def __init__(self):
         self.process_manager = ProcessQueueManager.ProcessQueueManager()
-        
+
     async def start_process(self, script_name):
         # Path to the script you want to start in the operations directory
         operations_dir = os.path.join(os.path.dirname(__file__), 'operations')
