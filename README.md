@@ -64,11 +64,12 @@ pip install -r requirements.txt
 #### Using [UV](https://docs.astral.sh/uv) to install and activate Virtual Environment
 ```bash
 # Create and activate a uv-managed virtual environment
-uv venv venv
-source venv/bin/activate
+uv venv
+# Activate the virtual environment
+source .venv/bin/activate
 
 # Install dependencies (automatically upgrades pip-equivalent internals)
-uv pip install -r requirements.txt
+uv sync
 ```
 
 ### ▶️ Run Initializer via CLI

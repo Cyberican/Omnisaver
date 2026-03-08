@@ -5,8 +5,12 @@ version = "0.1.0"
 description = "File/process automation utilities"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+	"async",
+	"psutil"
+]
 
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["omnisaver*"]
+
