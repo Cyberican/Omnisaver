@@ -2,11 +2,11 @@ import os
 import time
 import asyncio
 import subprocess
-from utils import ProcessQueueManager
+from utils import process_queue_manager
 
 class Initializer:
     def __init__(self):
-        self.process_manager = ProcessQueueManager.ProcessQueueManager()
+        self.process_manager = process_queue_manager.ProcessQueueManager()
 
     async def start_process(self, script_name):
         # Path to the script you want to start in the operations directory
